@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="row" style="background: #e8e8e8;">
+      <h1 class="col-md-6 text-center">City Weather Information</h1>
+    </nav>
+    <br />
+    <br />
+    <div class="row">
+      <form method="post" class="col-md-6 col-md-offset-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="city" placeholder="Enter city to search current weather">
+          <div class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Search
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        <form>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        {% if data.country_code and data.coordinate and data.temp and data.pressure and data.humidity %}
+        <h3 class="text-light">Country : {{data.country_code}}</h3>
+        <h4>City : {{data.city_code}}</h4>
+          <h5>Coordinate : {{data.coordinate}}</h5>
+          <h5>Temp : {{data.temp}}</h5>
+          <h5>Pressure : {{data.pressure}} </h5>
+          <h5>Humidity : {{data.humidity}}</h5>
+      {% else %}
+         <br> 
+         <br>  
+         <h3>City not found - {{data.city}}</h3>
+      {% endif %}
+     </div>
+    </div>
+  </body>
+  </html>
